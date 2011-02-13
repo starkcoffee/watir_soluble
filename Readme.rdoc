@@ -1,0 +1,19 @@
+
+==Environment variables
+
+* WEBDRIVER
+
+This determines which browser driver to try to use
+
+ie
+internet_explorer
+remote
+chrome
+firefox
+ff
+android
+iphone
+
+rvm use jruby
+bundle install
+bundle exec cucumber SOLUBLE_ENVIRONMENT=local

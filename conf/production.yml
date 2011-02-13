@@ -1,0 +1,2 @@
+sample_app:
+  base_url: 'https://test.smartservice.qld.gov.au/services/permits/fishing/apply'

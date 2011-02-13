@@ -1,0 +1,1 @@
+jirb -I "./lib" -r "./lib/osidt/console"
