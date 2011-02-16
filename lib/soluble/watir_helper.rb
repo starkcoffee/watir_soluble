@@ -80,17 +80,15 @@ module Soluble::WatirHelper
     # will generate the 'check_active', 'uncheck_active', and
     # 'active_checkbox' methods
     def checkbox name, identifier=default_identifier(name)
-      define_method("check_#{name}") do
-        @browser.checkbox(identifier).set
-      end
-      define_method("uncheck_#{name}") do
-        @browser.checkbox(identifier).clear
+      define_method("#{name}=") do |value|
+        if value
+            @browser.checkbox(identifier).set 
+        else
+            @browser.checkbox(identifier).clear
+        end
       end
       define_method("#{name}_checkbox") do
         @browser.checkbox(identifier)
-      end
-      define_method("#{name}=") do |value|
-        value ? @browser.checkbox(identifier).set : @browser.checkbox(identifier).clear
       end
     end
 

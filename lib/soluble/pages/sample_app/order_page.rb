@@ -13,14 +13,13 @@ module Soluble::Pages::SampleApp::OrderPage
     parameters = {
       'type' => 'latte',
       'num_sugars' => '2',
-      'strong' => 'true',
+      'strong' => true,
       'extras' => 'extra hot'
     }.merge overrides
     
-    %w{num_sugars extras type}.each do |key|
+    %w{num_sugars extras type strong}.each do |key|
       self.send "#{key}=", parameters[key]
     end
-    check_strong if parameters['strong'] = 'true'
     make
   end
 end
