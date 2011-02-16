@@ -7,7 +7,7 @@ module Soluble::WatirHelper
   # page.  On elements that support multiple attributes you can
   # provide multiple identifiers.
   #
-  # This module assumes there is a $browser variable available.
+  # This module assumes there is a @browser variable available.
 
   def self.included cls
     cls.extend ClassMethods
@@ -26,13 +26,13 @@ module Soluble::WatirHelper
     # 'first_text_field' methods
     def text_field name, identifier=default_identifier(name)      
       define_method(name) do
-        $browser.text_field(identifier).value
+        @browser.text_field(identifier).value
       end
       define_method("#{name}=") do |value|        
-        $browser.text_field(identifier).set(value)
+        @browser.text_field(identifier).set(value)
       end
       define_method("#{name}_text_field") do
-        $browser.text_field(identifier)
+        @browser.text_field(identifier)
       end
     end
 
@@ -44,13 +44,13 @@ module Soluble::WatirHelper
     # 'first_hidden' methods
     def hidden name, identifier=default_identifier(name)
       define_method(name) do
-        $browser.hidden(identifier).value
+        @browser.hidden(identifier).value
       end
       define_method("#{name}=") do |value|
-        $browser.hidden(identifier).set(value)
+        @browser.hidden(identifier).set(value)
       end
       define_method("#{name}_hidden") do
-        $browser.hidden(identifier)
+        @browser.hidden(identifier)
       end
     end
 
@@ -63,13 +63,13 @@ module Soluble::WatirHelper
     # methods
     def select_list name, identifier=default_identifier(name)
       define_method(name) do
-        $browser.select_list(identifier).value
+        @browser.select_list(identifier).value
       end
       define_method("#{name}=") do |value|
-        $browser.select_list(identifier).select(value)
+        @browser.select_list(identifier).select(value)
       end
       define_method("#{name}_select_list") do
-        $browser.select_list(identifier)
+        @browser.select_list(identifier)
       end
     end
 
@@ -81,16 +81,16 @@ module Soluble::WatirHelper
     # 'active_checkbox' methods
     def checkbox name, identifier=default_identifier(name)
       define_method("check_#{name}") do
-        $browser.checkbox(identifier).set
+        @browser.checkbox(identifier).set
       end
       define_method("uncheck_#{name}") do
-        $browser.checkbox(identifier).clear
+        @browser.checkbox(identifier).clear
       end
       define_method("#{name}_checkbox") do
-        $browser.checkbox(identifier)
+        @browser.checkbox(identifier)
       end
       define_method("#{name}=") do |value|
-        value ? $browser.checkbox(identifier).set : $browser.checkbox(identifier).clear
+        value ? @browser.checkbox(identifier).set : @browser.checkbox(identifier).clear
       end
     end
 
@@ -102,13 +102,13 @@ module Soluble::WatirHelper
     # 'north_radio_button' methods
     def radio_button name, identifier=default_identifier(name)
       define_method("select_#{name}") do
-        $browser.radio(identifier).set
+        @browser.radio(identifier).set
       end
       define_method("clear_#{name}") do
-        $browser.radio(identifier).clear
+        @browser.radio(identifier).clear
       end
       define_method("#{name}_radio_button")  do
-        $browser.radio(identifier)
+        @browser.radio(identifier)
       end
     end
 
@@ -121,13 +121,13 @@ module Soluble::WatirHelper
     # 'save_button' methods
     def button name, identifier=default_identifier(name)    
       define_method(name) do
-        $browser.button(identifier).click
+        @browser.button(identifier).click
       end
       define_method("#{name}_no_wait") do
-        $browser.button(identifier).click_no_wait
+        @browser.button(identifier).click_no_wait
       end
       define_method("#{name}_button") do
-        $browser.button(identifier)
+        @browser.button(identifier)
       end
     end
 
@@ -140,13 +140,13 @@ module Soluble::WatirHelper
     # and 'add_to_cart_link' methods
     def link name, identifier=default_identifier(name)
       define_method(name) do
-        $browser.link(identifier).click
+        @browser.link(identifier).click
       end
       define_method("#{name}_no_wait") do
-        $browser.link(identifier).click_no_wait
+        @browser.link(identifier).click_no_wait
       end
       define_method("#{name}_link") do
-        $browser.link(identifier)
+        @browser.link(identifier)
       end
     end
 
@@ -156,7 +156,7 @@ module Soluble::WatirHelper
     # will generate a 'shopping_cart' method
     def table name, identifier=default_identifier(name)
       define_method(name) do
-        $browser.table(identifier)
+        @browser.table(identifier)
       end
     end
 
@@ -167,10 +167,10 @@ module Soluble::WatirHelper
     # generate a 'header' and 'header_row' method
     def row name, identifier=default_identifier(name)
       define_method(name) do
-        $browser.row(identifier).text
+        @browser.row(identifier).text
       end
       define_method("#{name}_row") do
-        $browser.row(identifier)
+        @browser.row(identifier)
       end
     end
 
@@ -182,10 +182,10 @@ module Soluble::WatirHelper
     # method
     def cell name, identifier=default_identifier(name)
       define_method(name) do
-        $browser.cell(identifier).text
+        @browser.cell(identifier).text
       end
       define_method("#{name}_cell") do
-        $browser.cell(identifier)
+        @browser.cell(identifier)
       end
     end
 
@@ -196,10 +196,10 @@ module Soluble::WatirHelper
     # will generate a 'header' and 'header_div' methods
     def div name, identifier=default_identifier(name)
       define_method(name) do
-        $browser.div(identifier)
+        @browser.div(identifier)
       end
       define_method("#{name}_text") do
-        $browser.div(identifier).text
+        @browser.div(identifier).text
       end
     end
 
@@ -207,10 +207,10 @@ module Soluble::WatirHelper
     # and another method that returns the dd element
     def dd name, identifier=default_identifier(name)
       define_method(name) do
-        $browser.dd(identifier).text
+        @browser.dd(identifier).text
       end
       define_method("#{name}_dd") do
-        $browser.dd(identifier)
+        @browser.dd(identifier)
       end
     end
 
@@ -218,10 +218,10 @@ module Soluble::WatirHelper
     # and another that returns the dl element
     def dl name, identifier=default_identifier(name)
       define_method(name) do
-        $browser.dl(identifier).text
+        @browser.dl(identifier).text
       end
       define_method("#{name}_dl") do
-        $browser.dl(identifier)
+        @browser.dl(identifier)
       end
     end
 
@@ -229,10 +229,10 @@ module Soluble::WatirHelper
     # and another that returns the dt element
     def dt name, identifier=default_identifier(name)
       define_method(name) do
-        $browser.dt(identifier).text
+        @browser.dt(identifier).text
       end
       define_method("#{name}_dt") do
-        $browser.dt(identifier)
+        @browser.dt(identifier)
       end
     end
 
@@ -241,10 +241,10 @@ module Soluble::WatirHelper
     # form element
     def form name, identifier=default_identifier(name)
       define_method(name) do
-        $browser.form(identifier).text
+        @browser.form(identifier).text
       end
       define_method("#{name}_form") do
-        $browser.form(identifier)
+        @browser.form(identifier)
       end
     end
 
@@ -253,38 +253,38 @@ module Soluble::WatirHelper
     # frame element
     def frame name, identifier=default_identifier(name)
       define_method(name) do
-        $browser.frame(identifier).text
+        @browser.frame(identifier).text
       end
       define_method("#{name}_frame")  do
-        $browser.frame(identifier)
+        @browser.frame(identifier)
       end
     end
 
     # adds a method that returns an image <image> element
     def image name, identifier=default_identifier(name)
       define_method(name) do
-        $browser.image(identifier)
+        @browser.image(identifier)
       end
     end
   end
 
   def content
-    $browser.text
+    @browser.text
   end
 
   def dom
-    Nokogiri::HTML $browser.html
+    Nokogiri::HTML @browser.html
   end
 
   def visit_page page_url
-    $browser.goto page_url
+    @browser.goto page_url
   end
 
   def page_title
-    $browser.title
+    @browser.title
   end
 
   def wait_for_page
-    $browser.wait
+    @browser.wait
   end
 end
