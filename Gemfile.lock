@@ -14,13 +14,19 @@ GEM
     diff-lcs (1.1.2)
     ffi (0.6.3)
       rake (>= 0.8.7)
+    ffi (0.6.3-java)
     gherkin (2.3.3)
       json (~> 1.4.6)
+    gherkin (2.3.3-java)
+      json (~> 1.4.6)
     json (1.4.6)
+    json (1.4.6-java)
     json_pure (1.4.6)
     markaby (0.7.1)
       builder (>= 2.0.0)
     nokogiri (1.4.4)
+    nokogiri (1.4.4-java)
+      weakling (>= 0.0.3)
     prawn (0.8.4)
       prawn-core (>= 0.8.4, < 0.9)
       prawn-layout (>= 0.8.4, < 0.9)
@@ -41,6 +47,7 @@ GEM
     term-ansicolor (1.0.5)
     watir-webdriver (0.1.8)
       selenium-webdriver (>= 0.1.2)
+    weakling (0.0.4-java)
 
 PLATFORMS
   java
