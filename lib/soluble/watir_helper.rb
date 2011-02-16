@@ -100,13 +100,13 @@ module Soluble::WatirHelper
     # Example:  radio_button(:north, {:id => "north"})
     # will generate 'select_north', 'clear_north', and
     # 'north_radio_button' methods
-    def radio_button name, identifier=default_identifier(name)
-      define_method("select_#{name}") do
+    def radio_button name, identifier={:name => name.to_s}
+
+      define_method("#{name}=") do |value|
+        identifier[:value] = value
         @browser.radio(identifier).set
       end
-      define_method("clear_#{name}") do
-        @browser.radio(identifier).clear
-      end
+      
       define_method("#{name}_radio_button")  do
         @browser.radio(identifier)
       end

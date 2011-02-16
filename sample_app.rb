@@ -14,8 +14,8 @@ get '/' do
     <table border="0">
         <tr><td>Type</td>
             <td>
-                <input type="radio" name="coffee_type" value="flat_white"/>flat white
-                <input type="radio" name="coffee_type" value="latte"/>latte
+                <input type="radio" name="type" value="flat_white"/>flat white
+                <input type="radio" name="type" value="latte"/>latte
             </td>
         </tr>
         <tr><td>Num Sugars</td>
