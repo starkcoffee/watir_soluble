@@ -1,5 +1,7 @@
 require 'sinatra'
 
+File.open('tmp/test_web.pid', 'w') {|f| f.puts Process.pid }
+
 post '/coffee' do
   "<div id='confirmation'>Here is your coffee - #{'strong' if params['strong']} #{params['coffee_type']} with #{params['num_sugars']} sugars #{params['extras']}</div>"
 end
