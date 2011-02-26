@@ -9,17 +9,4 @@ module Soluble::Pages::SampleApp::OrderPage
   text_field :extras, {:id => 'coffee-extras'}
   button :make
 
-  def apply_with overrides={}
-    parameters = {
-      'type' => 'latte',
-      'num_sugars' => '2',
-      'strong' => true,
-      'extras' => 'extra hot'
-    }.merge overrides
-    
-    %w{num_sugars extras type strong}.each do |key|
-      self.send "#{key}=", parameters[key]
-    end
-    make
-  end
 end

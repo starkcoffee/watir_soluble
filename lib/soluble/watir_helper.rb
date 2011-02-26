@@ -8,9 +8,18 @@ module Soluble::WatirHelper
   # provide multiple identifiers.
   #
   # This module assumes there is a @browser variable available.
+  
 
   def self.included cls
     cls.extend ClassMethods
+  end
+
+  def fill_in params
+      params.each_pair {|key, value| self.send "#{key}=", value}
+  end
+
+  def submit button_id
+      @browser.button({ :id=> button_id.to_s}).click
   end
 
   module ClassMethods
