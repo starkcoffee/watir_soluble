@@ -4,6 +4,9 @@ rvm rvmrc trust
 cd features
 cd .. # hack to load RVMRC
 set -e
+set -u
 gem install bundler --no-rdoc --no-ri
 bundle install
-cucumber
+bundle exec rake test_web:start
+bundle exec cucumber
+bundle exec rake test_web:stop
