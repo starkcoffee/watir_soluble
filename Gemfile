@@ -1,6 +1,6 @@
-source "http://rubygems.org"
-gem "cucumber", "0.10.0"
+source 'http://rubygems.org'
+gem 'cucumber'
 gem 'watir-webdriver'
-gem "nokogiri"
-gem "sinatra"
-gem "markaby"
+gem 'nokogiri'
+gem 'sinatra'
+gem 'markaby'
