@@ -1,5 +1,4 @@
 require 'watir-webdriver'
-require 'watir-webdriver/extensions/wait'
 
 $driver_name = ENV['WEBDRIVER'] || 'firefox'
 $webdriver = Selenium::WebDriver.for $driver_name.to_sym
