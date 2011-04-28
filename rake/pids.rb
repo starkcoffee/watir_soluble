@@ -4,7 +4,7 @@ module Pids
   end
 
   def self.kill path
-    system "kill #{File.read(path)}"
+    system "kill -9 #{File.read(path)}"
     FileUtils.rm path , :force => true
   end
 
